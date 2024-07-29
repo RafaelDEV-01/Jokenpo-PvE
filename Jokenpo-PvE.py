@@ -5,7 +5,7 @@ class Jokenpo:
         self.opcoes = ["Pedra", "Papel", "Tesoura"]
 
     def opcao(self):
-        escolha_p1 = input("P1 faça uma escolha entre Papel, Pedra ou Tesoura: ").capitalize()
+        escolha_p1 = input("Player faça uma escolha entre Papel, Pedra ou Tesoura: ").capitalize()
         if escolha_p1 not in self.opcoes:
             print("Opção inválida, Digite Papel, Pedra ou Tesoura: ")
             return self.opcao()
@@ -15,25 +15,25 @@ class Jokenpo:
 
         return random.choice(self.opcoes)
 
-    def vencedor(self, jogador, computador):
+    def vencedor(self, player, bot):
 
-        if jogador == computador:
-            return 'Empate'
-        elif (jogador == "Pedra" and computador == "Tesoura") or \
-             (jogador == "Papel" and computador == "Pedra") or \
-             (jogador == "Tesoura" and computador == "Papel"):
-            return "P1 venceu! :)"
+        if player == bot:
+            return 'Empate!'
+        elif (player == "Pedra" and bot == "Tesoura") or \
+             (player == "Papel" and bot == "Pedra") or \
+             (player == "Tesoura" and bot == "Papel"):
+            return "Player venceu!"
         else:
-            return "P2 venceu!"
+            return "Bot venceu!"
 
     def Start(self):
 
         jogador = self.opcao()
         P2 = self.escolha_p2()
-        print(f'P1 escolheu: {jogador}')
-        print(f'P2 escolheu: {P2}')
+        print(f'Player escolheu: {jogador}')
+        print(f'Bot escolheu: {P2}')
         resultado = self.vencedor(jogador, P2)
         print(resultado)
 
-#j = Jokenpo()
-#j.Start()
+s = Jokenpo()
+s.Start()
